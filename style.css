@@ -1,0 +1,343 @@
+/*
+Theme Name: Kurssi
+Theme URI: http://users.metropolia.fi
+Author: Kasperi
+Author URI: https://metropolia.fi/
+Description: Teeman teon opiskelua
+Version: 0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: blue
+Text Domain: Kurssi
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+h1 {
+	color: blue;
+}
+
+body, ul {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	   font-family: 'Roboto', sans-serif;
+
+    font-family: 'Lato', sans-serif;
+}
+ 
+.tummansininen {
+	background-color: rgb(44,62,80);
+}
+
+.sininen {
+	background-color: rgb(52,152,219);
+}
+
+.punainen {
+	background-color: rgb(231,76,60);
+}
+
+.main-container {
+	max-width: 62.5em;
+	margin: auto;
+}
+
+.main-header {
+	width: 100%;
+	float: left;
+	height: 40px;
+}
+
+.tunnus {
+float: left;
+width: 12.5em;
+height: 40px;	
+}
+
+.tunnus a {
+	color: #FFF;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	line-height: 40px;
+	font-size: 1.5em;
+}
+
+.banner {
+	margin-bottom: 1em;
+	float: left;
+	width: 100%;
+}
+
+.banner img {
+	max-width: 100%;
+	height: auto;
+}
+
+.content-row {
+	float: left;
+	width: 100%;
+}
+
+.left-nav {
+	width: 15%;
+	float: left;
+}
+
+.left-nav li {
+	display: inline-block;
+	width: 100%;
+}
+
+.left-nav li:nth-of-type(1) {
+	display: none;
+}
+
+.left-nav a {
+	text-decoration: none;
+	line-height: 1em;
+	color: #000;
+	display: block;
+	padding: 0.5em 0 0.5em 0.5em;
+	border-top: #CCC solid 1px;
+}
+
+.left-nav a:hover {
+	background-color: rgb(237,240,241);
+}
+
+.left-nav li:last-child a { /* viimeinen li elementti*/
+	border-top: #CCC solid 1px;
+}
+
+.current-menu-item > a, .current-category-ancestor > a, .current-post-ancestor > a { /* > ettei alakategoriat mene punaiseksi*/
+	font-weight: bold;
+	color: #FF5A43;
+}
+
+.sub-menu {
+	display: none;
+	font-size: 0.73m;
+}
+
+.sub-menu a {
+	margin-left: 1em;
+}
+
+.sub-menu li:last-child a {
+	border-bottom:none;
+}
+
+.current-menu-item > ul, .current-category-ancestor > ul, .current-post-ancestor > ul {
+	display: block;
+}
+
+/*
+.current-menu-item .sub-menu {
+	display: block;
+}*/
+
+main {
+	width: 85%;
+	float: left;
+	padding: 0 1em; /* ylös alas = 0, vasen oikee 1em */
+	box-sizing: border-box; /* borderit lasketaan leveyteen*/
+}
+
+main h2 {
+	margin-top: 0;
+	coloe: rgb(44,62,80);
+}
+
+main > h3 { /*maining sisällä h3 */
+	font-weight: normal;
+	font-size: 1em;
+	padding: 0.5em 1em;
+	color: rgb(236,240,241);
+	border-radius: 8px 8px 0 0;
+	margin-bottom: 0.3em;
+	float: left;
+	width: 100%;
+}
+
+.post img {
+	width: 100%;
+	height: auto;
+}
+
+.tuote p {
+	width: 50%;
+	float: right;
+	padding-left: 1em;
+	box-sizing: border-box;
+	margin-top: 0;
+}
+
+.tuote p:nth-of-type(1) {
+	float: left;
+}
+
+
+article { 
+	width: 20%;
+	float: left;
+	height: 320px;
+}
+
+article a {
+	display: block;
+	max-width: 156px;
+	padding: 3px;
+	margin: auto;
+	text-decoration: none;
+	color: inherit; /* ottaa ympäröivästä elementistä värun */
+}
+
+article a:hover {
+	background-color: rgb(237,240,241);
+}
+
+article img {
+	max-width: 100%;
+	height: auto;
+	box-shadow: 0px 1px 3px #888;
+	display: block; /* näillä menee kuva keskelle */
+	margin: auto; 
+}
+
+article h4 {
+	font-weight: normal;
+	margin: 0.2em 0;
+	padding: 0 0.2em;
+}
+
+article p {
+	font-size: 0.7em;
+	margin: 0.5em 0;
+}
+
+footer {
+	float: left;
+	width: 100%;
+	color: rgb(236,240,241);
+	text-align: center;
+	padding: 1em 0 1em 0;
+	margin-top: 1em;
+}
+
+.search-block {
+	margin_ 0 1em 0 0;
+}
+
+.search-block form {
+	float: right;
+}
+
+.search-field {
+	border-radius: 10px 0 0 10px;
+	border: 0;
+	height: 26px;
+	padding: 5px 10px;
+	display: block;
+	margin: 7px 0;
+	float: left;
+	width: 80%;
+	box-sizing: border-box;
+}
+
+.search-block button {
+	border-radius: 0 10px 10px 0;
+	border: 0;
+	color: rgb(236,240,241);
+	padding: 5px 10px;
+	height: 26px;
+	margin: 7px 0;
+	float: left;
+	line-height: 12px;
+	width: 20%;
+	box-sizing: border-box;
+}
+
+@media screen and (min-width: 641px) and (max-width: 999px){
+	article {
+		width: 33.3%;
+	}
+}
+
+@media screen and (min-width: 641px){
+	
+	.left-nav li {
+		display: inline-block !important;
+		
+	}
+	
+	.left-nav > ul > li:nth-of-type(1) {
+		display: none !important;
+	}
+	
+	.post p {
+		width: 50%;
+		float: right;
+		clear: right;
+		padding-left: 1em;
+		box-sizing: border-box;
+		margin-top: 0;
+	}
+	
+	.post p:nth-of-type(1) {
+		float:left;
+		padding:0;
+	}
+}	
+
+@media screen and (max-width: 640px){
+	
+	.post img {
+	display: block;
+	margin: auto;
+	}
+
+	
+	.banner {
+		display: none;
+	}
+	
+	.left-nav {
+		width: 100%;
+		text-align:center;
+	}
+	
+	main {
+		width: 100%;
+	}
+	
+	
+	.left-nav li {
+		display: none;
+	}
+	
+	.left-nav > ul > li:nth-of-type(1) {
+		display: inline-block;
+	}
+	
+	article {
+		width: 50%;
+	}
+	
+	.tunnus {
+		width: 100%;
+	}
+	
+	.main-header {
+		height: auto;
+	}
+	
+	#searchform {
+		width: 80%;
+		margin: 0 10%;
+	}
+}
