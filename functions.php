@@ -63,7 +63,15 @@ function cd_customizer() {
 	);
 }
 
-
+if ( function_exists('register_sidebar') )
+  register_sidebar(array(
+    'name' => 'Name of Widgetized Area',
+    'before_widget' => '<div class = "widgetizedArea">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
+  )
+);
 
 add_action( 'wp_head', 'cd_customizer_css');
 function cd_customizer_css()

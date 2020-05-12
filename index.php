@@ -76,9 +76,14 @@ wp.customize( 'cd_photocount', function( value ) {
   //include('random_article_template.php');
 
   ?>
+<input type="button" id="slide" value=" Slide Down ">
+  <div id="slider">asd
+  </div>
+
 
  </main>
-
+ <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Name of Widgetized Area") ) : ?>
+ <?php endif;?>
 </div>
 
 <?php

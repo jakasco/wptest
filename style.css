@@ -8,7 +8,7 @@ Version: 0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blue
-Text Domain: Kurssi
+Text Domain: Oma teema
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -108,6 +108,16 @@ body {
 */
 background-color: yellow;
 /*transition: height 1s, visibility 1s, opacity 0.5s ease-out; */
+}
+
+#slider {
+  margin: 0px auto;
+padding: 0px;
+width: 400px;
+border: 1px solid #000;
+background: #0f0;
+height: 20px;
+overflow: hidden;
 }
 
 .mainContainer {
