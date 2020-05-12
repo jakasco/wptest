@@ -2,13 +2,23 @@
 <?php
 get_header(); ?>
 
-<div class="content-row">
-
+<div class="nav-container">
   <?php
   get_sidebar();
   ?>
+<button id="scrollTopButton" onclick="scrollToTop(1000);">top</button>
+</div>
 
 
+
+<div class="content-row">
+
+<!--<div class="nav-container">-->
+  <?php
+//  get_sidebar();
+  ?> <!--
+<button id="scrollTopButton" onclick="scrollToTop(1000);">top</button>
+</div> -->
 <?php //testasu
 /*
 if( get_theme_mod( 'cd_button_display', 'show' ) == 'show' ) : ?>
@@ -66,7 +76,7 @@ wp.customize( 'cd_photocount', function( value ) {
   //include('random_article_template.php');
 
   ?>
- <button onclick="scrollToTop(1000);">top</button>
+
  </main>
 
 </div>

@@ -19,6 +19,7 @@ checkElement(menuToFind).then(() => {
 
   let bool = isHidden(menuIconInMobileVersion);
 
+  //ulList.style.position = "absolute";
 //  ulList.style.transition = "height 2s"; //laita animaatio ulliin
   /*
   if (bool === false) { //mobile, laita näkyväksi li elementit pysty suunnassa
@@ -95,7 +96,7 @@ function isHidden(el) {
 
 function addScrollToMenu(li) {
   console.log("li: ", li);
-  li.style.display = "block";
+  li.style.display = "inline-block";
   li.style.width = "100%";
   li.style.float = "none";
 }

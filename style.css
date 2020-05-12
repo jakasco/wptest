@@ -365,9 +365,16 @@ footer {
     display: none;
   }
 
+  .nav-container {
+		background-color: grey;
+    position: fixed;
+    top: 0;
+  }
+
   .left-nav {
     width: 100%;
     text-align: center;
+
   }
 
   main {
@@ -385,7 +392,11 @@ footer {
 	.left-nav li:hover {
 		background-color: rgb(237, 240, 241);
 	}
-  
+
+  #scrollTopButton {
+    background-color: beige;
+  }
+
 
   article {
     width: 50%;
