@@ -35,29 +35,34 @@ wp.customize( 'cd_photocount', function( value ) {
 
 
 <main>
+  <div class="mainContainer">
+    <div class="grid-container">
 
-<div class="mainContainer">
-<div class="grid-container">
-
- <?php if (have_posts()):?>
-
- <?php	while(have_posts()):?>
-
-<?php the_post();?>
-<div class="grid-item">
-       <?php   the_title(); ?>
-       <div class="exp">
-        <?php	the_content();?>
-      </div>
-</div>
-
-
-	 <?php endwhile;?>
- <?php endif; ?>
-
- </div>
+      <?php if (have_posts()):?>
+      <?php $count = 0; ?>
+      <?php	while(have_posts()):
+        the_post();
+          $count ++;
+          if($count <= 9) //saadaan 3x3 ruudukko
+                  { //  echo 'Number of post is '.($count++);
+                   ?>
+                          <div class="grid-item">
+                            <?php the_title(); ?>
+                                  <div class="exp">
+                                    <?php  the_content();  ?>
+                                  </div>
+                           </div>
+              <?php } //if
+              else{
+              //
+              }
+	            endwhile;
+           endif; ?>
+    </div>
+  </div>
 
  <h3 class="sininen">Uuutuudet</h3>
+
  <?php
 	$uudet_artikkelit = wp_get_recent_posts(array('numberposts' => '5'));
 	//print_r($uudet_artikkelit); //tulostaa sivulle
