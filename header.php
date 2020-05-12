@@ -10,15 +10,36 @@
 	<?php wp_head(); ?> <!--Pluginit osaa lukea headerin -->
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?>
+
 <div class="main-container">
 <header class="tummansininen main-header">
-	<div class="punainen tunnus"><a href="<?php echo get_home_url(); ?>">Oy Firma ab</a></div>
+<!--	<?php /*echo get_theme_mod( 'header_color', '#43C6E4' ) */ ?> -->
+<h1><?php// echo get_bloginfo( 'name' ); ?></h1>
+
+<!--	<div class="punainen tunnus"><a href="<?php echo get_home_url(); ?>">Oy Firma ab</a></div>
+	<!--
 	<div class="search-block">
-	<?php get_search_form(); ?>
+	<?php// get_search_form(); ?>
+</div> -->
+
+	<div class="headerImg">
+
+
+
 	</div>
+	<!-- <div class="navi">
+
+	</div> -->
 </header>
-<div class="banner"> <!-- TARKASTA ONKO HEADER IMAGE, jos ei löydy, jätä tyhjäksi -->
-	<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="Banneri" >
-</div>
-<h1>VIDEO 8 VIIMEISIN </h1>
+
+<!--
+<div class="banner">
+	<img src="
+	<?php // header_image(); ?>
+	" height="
+	<?php //echo get_custom_header()->height; ?>
+	" width="<?php //echo get_custom_header()->width; ?>
+	" alt="Banneri" >
+</div> -->
+<!--<h1>VIDEO 8 VIIMEISIN </h1>-->

@@ -4,17 +4,20 @@ get_header(); ?>
 
 <div class="content-row">
 
-<?php
-get_sidebar();
-?>
+  <?php
+  get_sidebar();
+  ?>
 
-<h1>Otsikko</h1>
-<?php if( get_theme_mod( 'cd_button_display', 'show' ) == 'show' ) : ?>
+
+<?php //testasu
+/*
+if( get_theme_mod( 'cd_button_display', 'show' ) == 'show' ) : ?>
     <a href="" class='button'>Come On In</a>
-<?php endif ?>
+
+<?php endif*/ ?>
 
 <div id='photocount'>
-    <span id="photocountlabel"><?php echo get_theme_mod( 'cd_photocount', 0 ) ?></span> photos
+    <span id="photocountlabel"><?php // echo get_theme_mod( 'cd_photocount', 0 ) ?></span>
 </div>
 
 <script>
@@ -32,13 +35,27 @@ wp.customize( 'cd_photocount', function( value ) {
 
 
 <main>
+
+<div class="mainContainer">
+<div class="grid-container">
+
  <?php if (have_posts()):?>
+
  <?php	while(have_posts()):?>
-	 <?php	the_post();?>
-	 <h2> <?php the_title(); ?></h2>
-	 <?php	the_content();?>
+
+<?php the_post();?>
+<div class="grid-item">
+       <?php   the_title(); ?>
+       <div class="exp">
+        <?php	the_content();?>
+      </div>
+</div>
+
+
 	 <?php endwhile;?>
  <?php endif; ?>
+
+ </div>
 
  <h3 class="sininen">Uuutuudet</h3>
  <?php

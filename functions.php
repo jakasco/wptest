@@ -1,6 +1,9 @@
 <?php
 
-
+add_filter ('wp_image_editors', 'wpse303391_change_graphic_editor');
+function wpse303391_change_graphic_editor ($array) {
+    return array( 'WP_Image_Editor_GD', 'WP_Image_Editor_Imagick' );
+    }
 //include('customizer.php');
 // Filter except length to 35 words.
 // tn custom excerpt length
@@ -13,9 +16,10 @@ function custom_theme_setup() {
 
 	add_theme_support('title-tag'); //laittaa title tagin
 	add_theme_support('post-thumbnails');
-	add_theme_support('custom-background'); //admin paneeliin lisää valikkoja
-	add_theme_support('custom-header');
+	add_theme_support('custom-background'); //admin paneeliin lisää valikkoja, värin muutos
+	add_theme_support('custom-header'); //header text color tulee "colors":iin
 	add_theme_support( 'custom-header', array('width' => 1000, 'heigth' => 400));
+  add_theme_support('custom-footer');
 	//add_theme_support( 'custom-header', $args );
 
 	}
@@ -57,12 +61,45 @@ function cd_customizer() {
 		  true
 	);
 }
+
+
+
+add_action( 'wp_head', 'cd_customizer_css');
+function cd_customizer_css()
+{
+    ?>
+         <style type="text/css">
+             body { background: #<?php echo get_theme_mod('background_color', '#43C6E4'); ?>; }
+         </style>
+    <?php
+}
+
 /* CUSTOMIZER */
 add_action( 'customize_register', 'cd_customizer_settings' );
 
 function cd_customizer_settings( $wp_customize ) {
 
 
+$wp_customize->add_section( 'cd_colors' , array(
+		'title'      => 'Colors2',
+		'priority'   => 30,
+) );
+$wp_customize->add_setting( 'background_color' , array(
+		'default'     => '#43C6E4',
+	//	'transport'   => 'refresh',  //refresh=sivu latautuu että muutos näkuu, postMessage=samantien näkuu muutos
+	'transport'   => 'postMessage',
+) );
+
+$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
+'label'        => 'Background Color',
+'description' => 'Change the background color of page',
+'section'    => 'cd_colors',
+'settings'   => 'background_color',
+) ) );
+
+
+
+/*
 	$wp_customize->add_section( 'cd_colors' , array(
 	    'title'      => 'Header Color',
 	    'priority'   => 30,
@@ -74,21 +111,20 @@ function cd_customizer_settings( $wp_customize ) {
     'transport'   => 'refresh',
 ) );
 
-
-
 $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
-	'label'        => 'Header Color',
-	'section'    => 'cd_colors',
+	'label'        => 'Background Color',
+	'section'    => 'header_color',
 	'settings'   => 'header_color',
 ) ) );
+*/
 
+////////////////////////
 $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+/////////////////////
 
+//Nappiin customointi: näkyykö/eikö näy
 ///////////////
-
-
-
   $wp_customize->add_section( 'cd_button' , array(
       'title'      => 'The Button',
       'priority'   => 20,
@@ -113,6 +149,8 @@ $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 ////////////////////////////////////
 
 
+
+//live näkymä mitä tapahtuu kun palkkia vedetään edestakaisin
 if( class_exists( 'WP_Customize_Control' ) ) {
 	class WP_Customize_Range extends WP_Customize_Control {
 		public $type = 'range';
@@ -142,21 +180,6 @@ if( class_exists( 'WP_Customize_Control' ) ) {
 						value='<?php echo esc_attr( $this->value() ); ?>'>
 
 		</label>
-		<script>
-/*
-		let photocountlabel = document.getElementById("photocountlabel");
-
-		wp.customize( 'cd_photocount', function( value ) {
-
-			value.bind( function( newval ) {
-		//		console.log("newval: ",newval);
-		//		jQuery( '#photocount span' ).html( newval );
-	//	jQuery( '#photocountlabel' ).html( newval );
-			photocountlabel.innerHTML = "asdsadsa";
-			} );
-		} );
-		*/
-		</script>
 		<?php
 		}
 	}
@@ -174,69 +197,30 @@ $wp_customize->add_control( new WP_Customize_Range( $wp_customize, 'cd_photocoun
     'step' => 10,
 	'section' => 'title_tagline',
 ) ) );
+/////////////////////
+//FOOTER
+$wp_customize->add_section( 'customize_footer' , array(
+		'title'      => 'Footer2',
+		'priority'   => 40,
+) );
+
+$wp_customize->add_setting( 'customize_footer_add_fields' , array(
+		'default'     => "",
+		'transport'   => 'refresh',
+) );
+
+$wp_customize->add_control( 'customize_footer_add_fields', array(
+'label' => 'Add copyright notification',
+'section' => 'customize_footer',
+'settings' => 'customize_footer_add_fields',
+'type' => 'radio',
+'choices' => array(
+	'show' => 'Add copyright',
+	'hide' => 'Hide copyright',
+),
+) );
 
 
 }  //CUSTOMIZE SETINGS LOPPUU
 
-/*
-add_action( 'wp_head', 'cd_customizer_css');
-function cd_customizer_css()
-{
-    ?>
-         <style type="text/css">
-             body { background: #<?php echo get_theme_mod('background_color', '#43C6E4'); ?>; }
-         </style>
-    <?php
-}*/
-
-
-/*
-function mytheme_customize_register( $wp_customize ) {
-	$wp_customize->add_setting( 'header_textcolor' , array(
-	    'default'   => '#000000',
-	    'transport' => 'refresh',
-	) );
-	$wp_customize->add_section( 'mytheme_new_section_name' , array(
-    'title'      => __( 'Visible Section Name', 'mytheme' ),
-    'priority'   => 30,
-) );
-
-   //All our sections, settings, and controls will be added here
-	 $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-	'label'      => __( 'Header Color', 'mytheme' ),
-	'section'    => 'your_section_id',
-	'settings'   => 'your_setting_id',
-) ) );
-
-}
-add_action( 'customize_register', 'mytheme_customize_register' );
-
-function mytheme_customize_css()
-{
-    ?>
-         <style type="text/css">
-             h1 { color: <?php echo get_theme_mod('header_color', '#000000'); ?>; }
-         </style>
-    <?php
-}
-add_action( 'wp_head', 'mytheme_customize_css');
-/*
-add_action('customize_register','my_customize_register');
-function my_customize_register( $wp_customize ) {
-  $wp_customize->add_panel();
-  $wp_customize->get_panel();
-  $wp_customize->remove_panel();
-
-  $wp_customize->add_section();
-  $wp_customize->get_section();
-  $wp_customize->remove_section();
-
-  $wp_customize->add_setting();
-  $wp_customize->get_setting();
-  $wp_customize->remove_setting();
-
-  $wp_customize->add_control();
-  $wp_customize->get_control();
-  $wp_customize->remove_control();
-}*/
 ?>
