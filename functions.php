@@ -20,6 +20,7 @@ function custom_theme_setup() {
 	add_theme_support('custom-header'); //header text color tulee "colors":iin
 	add_theme_support( 'custom-header', array('width' => 1000, 'heigth' => 400));
   add_theme_support('custom-footer');
+	add_theme_support( 'customize-selective-refresh-widgets' );
 	//add_theme_support( 'custom-header', $args );
 
 	}

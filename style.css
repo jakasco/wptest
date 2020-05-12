@@ -383,6 +383,10 @@ footer {
     display: inline-block;
   }
 
+	.left-nav li:hover {
+		background-color: red;
+	}
+
   article {
     width: 50%;
   }
@@ -399,4 +403,39 @@ footer {
     width: 80%;
     margin: 0 10%;
   }
+
+	/* ///////////////////  */
+	.headerImg {
+	  width: 60%;
+	  margin-left: 20%;
+	  height: 30vh;
+	  background-color: #dadada;
+	  /*border: solid 0.5px;*/
+	}
+
+	.grid-container {
+	  display: grid;
+	  grid-gap: 50px;
+	  grid-template-columns: auto;
+	  background-color: #5d6e7b;
+	  padding: 10px;
+	}
+	.mainContainer {
+		background-color: #e6dfd5;
+		height: 100%;
+		margin-left: 0;
+	}
+
+	.grid-item {
+	  background-color: rgba(255, 255, 255, 0.8);
+	  border: 1px solid rgba(0, 0, 0, 0.8);
+	  padding: 15%;
+	  font-size: 30px;
+	  text-align: center;
+		overflow: hidden;
+		width: 70%;
+		background-color: #ffffc1;
+		height: 50px;
+	}
+
 }
