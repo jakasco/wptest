@@ -97,7 +97,6 @@ body {
 }
 
 .left-nav {
-  background-color: yellow;
   width: 60%;
   margin-left: 20%;
 	background-color: yellow;
@@ -108,7 +107,7 @@ body {
   width: 100%;
 */
 background-color: yellow;
-
+/*transition: height 1s, visibility 1s, opacity 0.5s ease-out; */
 }
 
 .mainContainer {
@@ -144,9 +143,9 @@ background-color: yellow;
 .left-nav li {
   /*  display: inline-block;
   width: 100%;
-*/
+
   border-radius: 5px;
-  border: solid 0.5px black;
+  border: solid 0.5px black;*/
   display: inline;
   float: left;
 	padding-right: 10px;
@@ -384,8 +383,9 @@ footer {
   }
 
 	.left-nav li:hover {
-		background-color: red;
+		background-color: rgb(237, 240, 241);
 	}
+  
 
   article {
     width: 50%;
