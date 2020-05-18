@@ -44,15 +44,19 @@ wp.customize( 'cd_photocount', function( value ) {
     <div class="grid-container">
 
       <?php if (have_posts()):?>
+
       <?php $count = 0; ?>
       <?php	while(have_posts()):
         the_post();
+
           $count ++;
           if($count <= 9) //saadaan 3x3 ruudukko
                   { //  echo 'Number of post is '.($count++);
                    ?>
                           <div class="grid-item">
-                            <?php the_title(); ?>
+                        <a target="_blank" rel="noopener noreferrer" href="<?php echo get_permalink();?>">
+                              <?php the_title(); ?>
+                            </a>
                                   <div class="exp">
                                     <?php  the_content();  ?>
                                   </div>

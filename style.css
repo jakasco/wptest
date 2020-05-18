@@ -110,6 +110,14 @@ background-color: yellow;
 /*transition: height 1s, visibility 1s, opacity 0.5s ease-out; */
 }
 
+.contactForm {
+
+}
+
+.contactChildDiv {
+
+}
+
 #slider {
   margin: 0px auto;
 padding: 0px;
@@ -302,7 +310,7 @@ footer {
   text-align: center;
   padding: 1em 0 1em 0;
   margin-top: 1em;
-  position: fixed;
+/*  position: fixed; */
     bottom: 0;
 }
 
