@@ -302,6 +302,8 @@ footer {
   text-align: center;
   padding: 1em 0 1em 0;
   margin-top: 1em;
+  position: fixed;
+    bottom: 0;
 }
 
 .search-block {
@@ -335,6 +337,10 @@ footer {
   line-height: 12px;
   width: 20%;
   box-sizing: border-box;
+}
+
+#scrollTopButton {
+  display: none;
 }
 
 @media screen and (min-width: 641px) and (max-width: 999px) {
@@ -407,6 +413,7 @@ footer {
 
   #scrollTopButton {
     background-color: beige;
+    display: block;
   }
 
 
@@ -460,5 +467,7 @@ footer {
 		background-color: #ffffc1;
 		height: 50px;
 	}
-
+ footer {
+   position: unset;
+ }
 }

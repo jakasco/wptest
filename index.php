@@ -2,12 +2,7 @@
 <?php
 get_header(); ?>
 
-<div class="nav-container">
-  <?php
-  get_sidebar();
-  ?>
-<button id="scrollTopButton" onclick="scrollToTop(1000);">top</button>
-</div>
+
 
 
 
@@ -43,36 +38,40 @@ wp.customize( 'cd_photocount', function( value ) {
 
 </script>
 
-<?php
-  if ( have_posts() ) {
 
-    // Load posts loop.
-    while ( have_posts() ) {
-      the_post();
-      get_template_part( 'template-parts/content/page' );
-    }
+<main>
+  <div class="mainContainer">
+    <div class="grid-container">
 
-    // Previous/next page navigation.
-  //  twentynineteen_the_posts_navigation();
+      <?php if (have_posts()):?>
+      <?php $count = 0; ?>
+      <?php	while(have_posts()):
+        the_post();
+          $count ++;
+          if($count <= 9) //saadaan 3x3 ruudukko
+                  { //  echo 'Number of post is '.($count++);
+                   ?>
+                          <div class="grid-item">
+                            <?php the_title(); ?>
+                                  <div class="exp">
+                                    <?php  the_content();  ?>
+                                  </div>
+                           </div>
+              <?php } //if
+              else{
+              //
+              }
+	            endwhile;
+           endif; ?>
+    </div>
+  </div>
 
-  } else {
-
-    // If no content, include the "No posts found" template.
-    get_template_part( 'template-parts/content/content', 'none' );
-
-  }
-  ?>
-
-<!--<main>
-
-  //include('random_article_template.php');
 
 
 
- </main>-->
+ </main>
  <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Name of Widgetized Area") ) : ?>
  <?php endif;?>
- <?php get_sidebar( 'content-bottom' ); ?>
 </div>
 
 <?php

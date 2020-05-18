@@ -32,12 +32,21 @@
 			<?php echo get_custom_header()->height; ?>
 			" width="<?php echo get_custom_header()->width; ?>
 			" alt="Banneri" >
-		</div>	
+		</div>
 
 	</div>
 	<!-- <div class="navi">
 
 	</div> -->
+	<div id='photocount'>
+	    <span id="photocountlabel"><?php // echo get_theme_mod( 'cd_photocount', 0 ) ?></span>
+	</div>
+	<div class="nav-container">
+	  <?php
+	  get_sidebar();
+	  ?>
+	<button id="scrollTopButton" onclick="scrollToTop(1000);">top</button>
+	</div>
 </header>
 
 
