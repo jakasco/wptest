@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <div id="primary" class="content-area">
-
+</h1> 1 PAGE.PHP </h1>
                 <main id="main" class="site-main" role="main">
-                </h1>1 PAGE.PHP </h1>
+                </h1> 2 PAGE.PHP </h1>
                                 <?php
                                 // Start the loop.
                                 while ( have_posts() ) : the_post();
