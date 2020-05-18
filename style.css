@@ -118,6 +118,7 @@ border: 1px solid #000;
 background: #0f0;
 height: 20px;
 overflow: hidden;
+background-color: green;
 }
 
 .mainContainer {

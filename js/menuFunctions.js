@@ -180,27 +180,28 @@ function scrollToTop(duration) {
 }
 
 ///////////////////////
-var minheight = 20;
-var maxheight = 100;
-var time = 1000;
-var timer = null;
-var toggled = false;
+let minheight = 20;
+let maxheight = 100;
+let time = 1000;
+let timer = null;
+let toggled = false;
 
 window.onload = function() {
-    var controller = document.getElementById('slide');
-    var slider = document.getElementById('slider');
+    let controller = document.getElementById('slide');
+    let slider = document.getElementById('slider');
     slider.style.height = minheight + 'px'; //not so imp,just for my example
     controller.onclick = function() {
+      console.log("Slider clicked!");
         clearInterval(timer);
-        var instanceheight = parseInt(slider.style.height);  // Current height
-        var init = (new Date()).getTime(); //start time
-        var height = (toggled = !toggled) ? maxheight: minheight; //if toggled
+        let instanceheight = parseInt(slider.style.height);  // Current height
+        let init = (new Date()).getTime(); //start time
+        let height = (toggled = !toggled) ? maxheight: minheight; //if toggled
 
-        var disp = height - parseInt(slider.style.height);
+        let disp = height - parseInt(slider.style.height);
         timer = setInterval(function() {
-            var instance = (new Date()).getTime() - init; //animating time
+            let instance = (new Date()).getTime() - init; //animating time
             if(instance <= time ) { //0 -> time seconds
-                var pos = instanceheight + Math.floor(disp * instance / time);
+                let pos = instanceheight + Math.floor(disp * instance / time);
                 slider.style.height =  pos + 'px';
             }else {
                 slider.style.height = height + 'px'; //safety side ^^

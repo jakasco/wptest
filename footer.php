@@ -18,6 +18,9 @@ echo '<p>' . $output . '</p>';
 
 ?>
    <?php endif ?>
+   <input type="button" id="slide" value=" Slide Down ">
+    <div id="slider">asd
+    </div>
 
  </footer>
 </div>
