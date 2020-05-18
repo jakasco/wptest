@@ -25,7 +25,14 @@
 
 	<div class="headerImg">
 
-
+		<div class="banner">
+			<img src="
+			<?php  header_image(); ?>
+			" height="
+			<?php echo get_custom_header()->height; ?>
+			" width="<?php echo get_custom_header()->width; ?>
+			" alt="Banneri" >
+		</div>	
 
 	</div>
 	<!-- <div class="navi">
@@ -33,13 +40,6 @@
 	</div> -->
 </header>
 
-<!--
-<div class="banner">
-	<img src="
-	<?php // header_image(); ?>
-	" height="
-	<?php //echo get_custom_header()->height; ?>
-	" width="<?php //echo get_custom_header()->width; ?>
-	" alt="Banneri" >
-</div> -->
+
+
 <!--<h1>VIDEO 8 VIIMEISIN </h1>-->

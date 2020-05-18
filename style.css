@@ -159,6 +159,7 @@ overflow: hidden;
   display: inline;
   float: left;
 	padding-right: 10px;
+  padding-top: 5px;
 }
 
 .left-nav li:nth-of-type(1) {
