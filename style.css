@@ -65,6 +65,42 @@ body {
   opacity: 0.3;
 }
 
+.categories {
+  display: inline-flex;
+  /*
+  display: grid;
+grid-auto-columns: auto auto auto;*/
+}
+
+.tuotteetSivunGrid {
+  float: left;
+    width: 30%;
+    background-color: #e0e0ae;
+    height: 50vh;
+    overflow: scroll;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: solid 1px;
+}
+
+#tuoteryhmanNimi {
+  color: green;
+  padding-left: 10%;
+}
+
+.grid-item-categories {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+	overflow: hidden;
+	width: 70%;
+	background-color: #ffffc1;
+	height: 50px;
+}
+
+
 .tunnus {
   float: left;
   width: 12.5em;
@@ -314,6 +350,14 @@ footer {
     bottom: 0;
 }
 
+.tuotteetSivunGrid {
+  float: left;
+width: 33%;
+background-color: #e0e0ae;
+height: 50vh;
+overflow: scroll;
+}
+
 .search-block {
   margin_ 0 1em 0 0;
 }
@@ -463,6 +507,7 @@ footer {
 		height: 100%;
 		margin-left: 0;
 	}
+
 
 	.grid-item {
 	  background-color: rgba(255, 255, 255, 0.8);

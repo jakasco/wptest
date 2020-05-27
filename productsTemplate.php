@@ -27,45 +27,92 @@
                   if (sizeof($terms)>0)
                   {
 
-                  echo ' <div class="categories">  ';
-                  echo '<p> Sub Categories of '. get_cat_name( $parent_term_id ) .'</p>';
+              //    echo ' <div class="categories" >  ';
 
-  $count = 0;
+              ?>
+              <div class="categories" >
+                <?php
+
+                  echo '<p> Kaikki tuoteryhmät: '. get_cat_name( $parent_term_id ) .'</p>';
+
+  $countInt = 0;
                   foreach ( $terms as $term ) {
-echo '<ul>';
-              /*       $term_link = sprintf( '<div class="custom-cats"><a href="%1$s" alt="%2$s">%3$s</a></div>',
-                     esc_url(
-                        get_category_link( $term->term_id ) ),
-                          esc_attr( sprintf( 'View all posts in %s', 'textdomain' ), $term->name ),
-                          esc_html( $term->name ));
-
-                      echo sprintf( $term_link );
-                    }*/
 
 
-                  $count++;
-                  if ($count <= 3) { //näytä 3 alakategoriaa
-                    echo    '<h3>count of posts : '. $term->count . " / "  . $term->name . '</h3>';
+                  $countInt++;
+                  if ($countInt <= 3) { //näytä 3 alakategoriaa
+                    ?>
+<div class="tuotteetSivunGrid"> <!--class="tuotteetSivunGrid">  alkuperäinen-->
+
+
+                    <?php
+              //      echo "<div style='float: left; width: 33%; background-color: #e0e0ae;height: 50vh;overflow: scroll;'>";
 
                     global $post2;
 
                     $args4 = array( 'numberposts' => 10, 'category_name' => $term->slug );
                     $posts2 = get_posts( $args4 );
 
+  echo    '<h3 id="tuoteryhmanNimi">' . $term->name . '</h3>';
+      echo '<h5 style="padding-left: 15%;">Tuotteita yhteensä: '. $term->count . " </h5>";
+                    foreach( $posts2 as $post ): //setup_postdata($post);
+                //    $title = the_title();
 
-                    foreach( $posts2 as $post ): setup_postdata($post);
-                    $title = the_title();
-echo "<li>count: " . $args4['category_name'] . "</li>";
-echo '</ul>'
+                    echo '<ul style="background-color: #cecece;">';
+
+
+
+
+
+                      echo "<li style='padding-top: 10%; padding-bottom: 5px;border-bottom: solid 0.5px;'>";
+echo "title : " . the_title();
+                      if (has_post_thumbnail( $post->ID )){?>
+  <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ),
+  'single-post-thumbnail' ); ?>
+  <div id="custom-bg" style="background-image: url('<?php echo $image[0]; ?>')">
+
+  </div>
+  <?php }else{
+  ?>
+  <div id="custom-bg" > <!-- MUUTA KUVAN URL -->
+   <img class="tuotteetImg" src='http://localhost/wp/wp-content/uploads/2019/01/IMG_0058-1.jpg' width="100%" height="100%">
+  </div>
+  <?php
+  };
+
+
+
+
+
+
+
+                      echo "<div style=''>";
+                      $excerpt = strip_tags($post->post_content);
+       if (strlen($excerpt) > 100) {
+         $excerpt = substr($excerpt, 0, 100);
+         $excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
+         $excerpt .= '...';
+       }
+     ?>
+
+     <p class="excerpt"><?php echo $excerpt ?></p>
+
+     <?php
+
+                    echo  "<div class='exp'> asd"; //. the_excerpt();
+                    echo "<a href='" . get_permalink() . "'> Lue lisää... </a>";
+                    echo "</div>";
+                    echo "</div>";
+                    "</li>";
+echo '</ul>';
+        endforeach;
 ?>
 
 <?php
 
-                    endforeach;
-                //       echo $args2['category_name'];
                     } //if count
 
-
+  echo "</div>";
 
 }//foreach
 
