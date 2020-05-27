@@ -36,6 +36,8 @@ wp.customize( 'cd_photocount', function( value ) {
 */
 
 
+
+
 </script>
 
 
@@ -50,6 +52,24 @@ wp.customize( 'cd_photocount', function( value ) {
         the_post();
 
           $count ++;
+
+
+
+
+          $count = 0
+            foreach ($cObjects as $oObject) {
+                  if ($count == 2) {
+                        //do things
+                          $count = 0;
+                          } else {
+                              // do other things
+                              }
+                                $count++;
+                                }
+
+
+
+
           if($count <= 9) //saadaan 3x3 ruudukko
                   { //  echo 'Number of post is '.($count++);
                    ?>
