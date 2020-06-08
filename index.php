@@ -51,6 +51,14 @@ if( get_theme_mod( 'cd_button_display', 'show' ) == 'show' ) : ?>
 <main id="main" class="site-main" role="main">
 
 
+  <div id="otaYhteyttaOtsikko" style="">
+    <div style="display: table-cell; vertical-align: middle;">
+      <div>
+          Blogi Postaukset:
+      </div>
+    </div>
+  </div>
+
 
 
     <div class="mainContainer">
@@ -78,12 +86,26 @@ if( get_theme_mod( 'cd_button_display', 'show' ) == 'show' ) : ?>
 function createGridItem(link, title, imagelink) {
   //console.log("createGridItem toimii!", imagelink);
 //   let sourceCode = "asd";
+
+  let imgHTML = "";
+
+  if (imagelink == ""){
+    alert("imagelink error");
+    imgHTML = `<p>Ei esikatselua...</p>`;
+  }else{
+    imgHTML = `<img class="tuotteetImg" src="`+imagelink+`" width="100%" height="100%">`;
+  }
+
+  console.log("imgHTML: ",imgHTML);
+
   let sourceCode = `<div class="grid-item">
    <a target="_blank" rel="noopener noreferrer" class="titleLinkki"
       href="`+link+`">`+title+`
       </a>
          <div class="blogi-thumbnail-div">
-        <img class="tuotteetImg" src="`+imagelink+`" width="100%" height="100%">
+         `
+         +imgHTML+ //lisätään kuva, jos ei ole, niin teksti ei esikatselua
+         `
         </div>
          <div class="exp">
         <a class="lueLisaa" target="_blank" rel="noopener noreferrer" href="'+link+'">
@@ -113,9 +135,12 @@ echo $url;
           let linkki<?php echo $count ?> = "<?php echo get_permalink() ?>";
           let title<?php echo $count ?>  = "<?php echo the_title() ?>";
           let boolean<?php echo $count ?>  = true;
+
           let imagelink<?php echo $count ?>  = "<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID()->ID ),'single-post-thumbnail' )[0];?>";
 
+
           <?php $thumnail = wp_get_attachment_image_src( get_post_thumbnail_id( $id->ID ),'single-post-thumbnail' );
+
       //    echo $thumnail[0];
 
           $first_value = reset($thumnail);
@@ -123,18 +148,28 @@ echo $url;
            ?>
            imagelink<?php echo $count ?> = <?php $first_value; ?>;
 //console.log(linkki<?php // echo $count ?> +","+","+title<?php // echo $count ?> +","+imagelink<?php  // echo $count ?>);
-console.log("imagelink<php echo $count ?> : ","<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID()->ID ),'single-post-thumbnail' )[0];?>");
 
-         let html<?php echo $count ?> =  createGridItem(
-            linkki<?php echo $count ?>,
-            title<?php echo $count ?>,
-            imagelink<?php echo $count ?>
-          );
+console.log("ERROR ","<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID()->ID ),'single-post-thumbnail' )[0];?>");
+console.log("Esikuva katselut löytyy: "+<?php echo $count ?>);
+let html<?php echo $count ?> =  createGridItem(
+   linkki<?php echo $count ?>,
+   title<?php echo $count ?>,
+   imagelink<?php echo $count ?>
+ );
 
-          let newElem<?php echo $count ?> = document.createElement("div");
-          newElem<?php echo $count ?>.innerHTML = html<?php echo $count ?>;
-          newElem<?php echo $count ?>.className = "grid-container";
-          document.querySelector(".grid-container").appendChild(newElem<?php echo $count ?>);
+
+ if(imagelink<?php echo $count ?> !== ""){
+   let newElem<?php echo $count ?> = document.createElement("div");
+   newElem<?php echo $count ?>.innerHTML = html<?php echo $count ?>;
+   newElem<?php echo $count ?>.className = "grid-container";
+   document.querySelector(".grid-container").appendChild(newElem<?php echo $count ?>);
+ }else{
+   alert("Error");
+ }
+
+
+
+
         </script>
 
                   <?php

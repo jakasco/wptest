@@ -32,6 +32,7 @@ label {
     clear: both;
     float:left;
 
+        font-weight: bold;
 }
 
 #yheysViesti {
@@ -40,14 +41,43 @@ label {
 }
 
 input {
-
+    margin-top: 10px;
     margin-left:15px;
     width: 350px;
     float: left;
 }
 
+
+#otaYhteyttaOtsikko {
+  width: 50em;
+background-color: #e6dfd5;
+    height: 100px;
+    text-align: center;
+display: table;
+ overflow: hidden;
+ font-size: 25px;
+    font-weight: bold;
+}
+
 #lahetaNappi {
   width: 150px;
+  margin-top: -10%;
+margin-left: 5%;
+background-color: #a1aaf7;
+height: 40px;
+border-radius: 10px;
+font-weight: bold;
+font-size: 17px;
+}
+
+#takaisinEtusivulle {
+  background-color: #3a3d50;
+    height: 60px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #bdbaba;
+    font-size: 17px;
+    margin-top: 12%;
 }
 
 .blogi-thumbnail-div {
@@ -133,8 +163,15 @@ grid-auto-columns: auto auto auto;*/
 }
 
 #tuoteryhmanNimi {
-  color: green;
+  color: black;
   padding-left: 10%;
+}
+
+
+.lueLisaaTuote {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2929bd;
 }
 
 .grid-item-categories {
@@ -246,6 +283,13 @@ background-color: green;
     font-size: 18px;
     font-weight: bold;
     color: black;
+}
+
+.textAreaDiv {
+    float: left;
+    margin-top: -100px;
+    margin-left: 10%;
+
 }
 
 .lueLisaa {
@@ -415,10 +459,19 @@ footer {
 
 .tuotteetSivunGrid {
   float: left;
-width: 33%;
+width: 30%;
 background-color: #e0e0ae;
 height: 50vh;
 overflow: scroll;
+}
+
+#tuoteNimi {
+  font-size: 22px;
+margin-left: 10px;
+padding-bottom: 10px;
+text-decoration: underline;
+color: #3c3434;
+font-family: fantasy;
 }
 
 .search-block {

@@ -5,8 +5,17 @@
 <div id="primary" class="content-area">
 
                 <main id="main" class="site-main" role="main">
-                </h1>Ota yhteyttä</h1>
-  <div class="contactChildDiv">
+
+              <div id="otaYhteyttaOtsikko" style="">
+                <div style="display: table-cell; vertical-align: middle;">
+                  <div>
+                      Ota yhteyttä meihin sähköpostilla!
+                  </div>
+                </div>
+              </div>
+
+                <br>
+  <div class="contactChildDiv" style="backgroundColor: #d8d8d7;">
                 <form class="contactForm">
 
 
@@ -31,18 +40,33 @@
     <input type="text" id="lname" name="lname"><br>
       </div>
   </div>
+  <div class="textAreaDiv">
+  <label for="lname">Viesti:</label>
+  <br>
+  <textarea id="yheysViesti">
+  </textarea><br>
+</div>
+</div>
+
     <br>
-    <label for="lname">Viesti:</label>
+
     <br>
-    <textarea id="yheysViesti">
-    </textarea><br><br>
     <input id="lahetaNappi" type="submit" value="Lähetä">
+</div>
 </div>
 
 
 
 
                 </form>
+
+
+                <br>
+            <div>
+                <button id="takaisinEtusivulle">Takaisin etusivulle</button>
+            </div>
+
+
                 </main><!-- .site-main -->
                 <?php get_sidebar( 'content-bottom' ); ?>
 </div><!-- .content-area -->
