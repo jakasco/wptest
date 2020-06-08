@@ -82,12 +82,59 @@ if( get_theme_mod( 'cd_button_display', 'show' ) == 'show' ) : ?>
 <script>
 
 
+function ifElseReturn(string, stringUusi,eka, ehto, stringUusi){
+  if(eka == ehto){
+   string = stringUusi;
+   return stringUusi;
+  }else{
+    return string;
+  }
+}
+
+
+function createHTMLcode(mones,link,title,imgHTML,showMore){
+
+  let gridItemDiv = `<div class="grid-item">`;
+  let gridItemDiv2 = `<div class="grid-item" style="display:none;">`;
+
+  if(mones > 8){
+    let gridItemDiv = `<div class="grid-item" style="background-color:red;">`;
+  }
+  console.log("gridItemDiv ",gridItemDiv);
+//  let count = ifElseReturn(gridItemDiv,gridItemDiv2,mones,true )
+
+  let sourceCode = //`<div class="grid-item">
+    gridItemDiv+
+    `
+   <a target="_blank" rel="noopener noreferrer" class="titleLinkki"
+      href="`+link+`">`+title+`
+      </a>
+         <div class="blogi-thumbnail-div">
+         `
+         +imgHTML+ //lisätään kuva, jos ei ole, niin teksti ei esikatselua
+         `
+        </div>
+         <div class="exp">
+        <a class="lueLisaa" target="_blank" rel="noopener noreferrer" href="'+link+'">
+          Lue lisää...
+           </a>
+             </div>
+          </div>
+        </div>`
+          +showMore
+        ;
+//console.log(sourceCode);
+return sourceCode;
+}
+
 //luodaan HTML-lähdekoodi anneteuista parametreistä
-function createGridItem(link, title, imagelink) {
+function createGridItem(link, title, imagelink, count) {
   //console.log("createGridItem toimii!", imagelink);
 //   let sourceCode = "asd";
 
+
   let imgHTML = "";
+  let showMore = "";
 
   if (imagelink == ""){
     alert("imagelink error");
@@ -96,7 +143,7 @@ function createGridItem(link, title, imagelink) {
     imgHTML = `<img class="tuotteetImg" src="`+imagelink+`" width="100%" height="100%">`;
   }
 
-  console.log("imgHTML: ",imgHTML);
+//  console.log("imgHTML: ",imgHTML);
 
   let sourceCode = `<div class="grid-item">
    <a target="_blank" rel="noopener noreferrer" class="titleLinkki"
@@ -113,9 +160,12 @@ function createGridItem(link, title, imagelink) {
            </a>
              </div>
           </div>
-        </div>
-`;
+        </div>`
+          +showMore
+        ;
 //console.log(sourceCode);
+
+
 return sourceCode;
 }
 //
@@ -129,6 +179,7 @@ echo $url;
 
 
 ?>
+
 
           <?php $id = get_the_ID(); ?>
 
@@ -154,7 +205,8 @@ console.log("Esikuva katselut löytyy: "+<?php echo $count ?>);
 let html<?php echo $count ?> =  createGridItem(
    linkki<?php echo $count ?>,
    title<?php echo $count ?>,
-   imagelink<?php echo $count ?>
+   imagelink<?php echo $count ?>,
+   <?php echo $count ?>
  );
 
 
@@ -171,7 +223,9 @@ let html<?php echo $count ?> =  createGridItem(
 
 
         </script>
-
+      <!--  <input type="button" id="slide" value=" Slide Down ">
+         <div id="slider">asd
+         </div> -->
                   <?php
                                         $count++;
             ?>
