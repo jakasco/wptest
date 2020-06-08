@@ -79,14 +79,14 @@ function createGridItem(link, title, imagelink) {
   //console.log("createGridItem toimii!", imagelink);
 //   let sourceCode = "asd";
   let sourceCode = `<div class="grid-item">
-   <a target="_blank" rel="noopener noreferrer"
+   <a target="_blank" rel="noopener noreferrer" class="titleLinkki"
       href="`+link+`">`+title+`
       </a>
          <div class="blogi-thumbnail-div">
         <img class="tuotteetImg" src="`+imagelink+`" width="100%" height="100%">
         </div>
          <div class="exp">
-        <a target="_blank" rel="noopener noreferrer" href="'+link+'">
+        <a class="lueLisaa" target="_blank" rel="noopener noreferrer" href="'+link+'">
           Lue lisää...
            </a>
              </div>
@@ -135,22 +135,14 @@ console.log("imagelink<php echo $count ?> : ","<?php echo wp_get_attachment_imag
           newElem<?php echo $count ?>.innerHTML = html<?php echo $count ?>;
           newElem<?php echo $count ?>.className = "grid-container";
           document.querySelector(".grid-container").appendChild(newElem<?php echo $count ?>);
-</script>
+        </script>
 
                   <?php
                                         $count++;
-        //    echo "<script> test(". $count ."); </script>";
             ?>
 
         <?php endwhile; ?>
         <?php endif; wp_reset_postdata(); ?>
-
-    
-
-
-
-
-
 
   </div>
 

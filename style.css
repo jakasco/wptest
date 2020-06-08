@@ -27,6 +27,29 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+label {
+    text-align: right;
+    clear: both;
+    float:left;
+
+}
+
+#yheysViesti {
+	width: 250px;
+    height: 350px;
+}
+
+input {
+
+    margin-left:15px;
+    width: 350px;
+    float: left;
+}
+
+#lahetaNappi {
+  width: 150px;
+}
+
 .blogi-thumbnail-div {
 
 }
@@ -199,7 +222,7 @@ background-color: green;
 
 .grid-container {
   display: grid;
-  grid-gap: 50px;
+/*  grid-gap: 50px; */
   grid-template-columns: auto auto auto;
   background-color: #5d6e7b;
   padding: 10px;
@@ -214,7 +237,21 @@ background-color: green;
 	overflow: hidden;
 	width: 70%;
 	background-color: #ffffc1;
-	height: 350px;
+	height: 250px;
+}
+
+
+.titleLinkki {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.lueLisaa {
+  font-size: 15px;
+font-weight: bold;
+color: #dc6767;
 }
 
 .exp {

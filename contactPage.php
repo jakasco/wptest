@@ -11,14 +11,32 @@
 
 
 
+
+
+<div class="labels">
                             <label for="fname">Nimi:</label>
-    <input type="text" id="fname" name="fname"><br><br>
+                            <br>
+                            <div class="inputs">
+    <input type="text" id="fname" name="fname"><br>
+  </div>
+    </div>
+
+    <br>
+
+    <div class="labels">
+
     <label for="lname">Sähköposti:</label>
-    <input type="text" id="lname" name="lname"><br><br>
+    <br>
+    <div class="inputs">
+    <input type="text" id="lname" name="lname"><br>
+      </div>
+  </div>
+    <br>
     <label for="lname">Viesti:</label>
-    <textarea>
+    <br>
+    <textarea id="yheysViesti">
     </textarea><br><br>
-    <input type="submit" value="Lähetä">
+    <input id="lahetaNappi" type="submit" value="Lähetä">
 </div>
 
 
