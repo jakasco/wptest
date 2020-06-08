@@ -27,6 +27,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+.blogi-thumbnail-div {
+
+}
+
 .tummansininen {
   background-color: rgb(44, 62, 80);
 }
@@ -38,6 +42,28 @@ body {
 .punainen {
   background-color: rgb(231, 76, 60);
 }
+
+
+.postaus {
+background-color: #d8d8d7;
+}
+
+.postausTitle {
+  margin-left: 30%;
+  padding-top: 5%;
+  padding-bottom: 3%;
+}
+
+ul {
+  list-style-type: none;
+}
+.contentOfPostaus {
+  font-size: 1.3em;
+  width: 80%;
+  margin-left: 5%;
+  padding-bottom: 10%;
+}
+
 
 .main-container {
   max-width: 62.5em;
@@ -188,7 +214,7 @@ background-color: green;
 	overflow: hidden;
 	width: 70%;
 	background-color: #ffffc1;
-	height: 50px;
+	height: 350px;
 }
 
 .exp {

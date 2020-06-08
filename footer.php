@@ -1,6 +1,12 @@
 
  <footer class="tummansininen">
 
+<?php
+if (is_singular() && comments_open() && (get_option('thread_comments') == 1)) {
+    wp_enqueue_script('comment-reply', '/js/comment-reply.js', array(), false, true);
+}
+ ?>
+
    <?php if( get_theme_mod( 'customize_footer_add_fields', 'show' ) == 'show' ) : ?>
        <a href="" class='button'>COPYRIGHT
 

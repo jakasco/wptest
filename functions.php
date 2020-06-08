@@ -33,6 +33,33 @@ function rekisteroi_menu(){
 
 add_action('init', 'rekisteroi_menu'); //init = wordpress suorittaa komennot ennen kuin lähettää palvelimelle
 
+//lisää kommentointi
+
+
+
+function gb_comment_form_tweaks ($fields) {
+    //add placeholders and remove labels
+    $fields['author'] = '<input id="author" name="author" value="" placeholder="Nimi*" size="30" maxlength="245" required="required" type="text">';
+
+    $fields['email'] = '<input id="email" name="email" type="email" value="" placeholder="Sähköposti*" size="30" maxlength="100" aria-describedby="email-notes" required="required">';
+
+    //unset comment so we can recreate it at the bottom
+    unset($fields['comment']);
+
+    $fields['comment'] = '<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" placeholder="Kommentti*" required="required"></textarea>';
+
+    //remove website
+    unset($fields['url']);
+
+    return $fields;
+}
+
+add_filter('comment_form_fields', 'gb_comment_form_tweaks');
+
+comment_form(array('title_reply' => 'Join the discussion!', 'comment_notes_before' => ''));
+
+
+
 //lisää jquery
 
 function lisaa_kirjasto() {
@@ -40,12 +67,34 @@ function lisaa_kirjasto() {
 }
 
 add_action( 'wp_enqueue_script', 'lisaa_kirjasto' );
+
+//add_action( 'wp_enqueue_scripts', 'myplugin_load_script' ); //lisää javascript
+function myplugin_load_script() {
+    wp_enqueue_script( 'myplugin-testjs', "http://localhost/wordpress4/wp-content/themes/oma-teema/js/menuFunctions.js", array('jquery'), null, true );
+
+}
+
+
+function myplugin_load_script2() {
+    wp_enqueue_script( 'myplugin-testjs', "http://localhost/wordpress4/wp-content/themes/oma-teema/js/homepageCarousel.js", array('jquery'), null, true );
+
+}
+//add_action( 'wp_enqueue_scripts', 'myplugin_load_script2' ); //lisää javascript
+
+/*
+add_action('wp_enqueue_scripts', 'my_enqueue_scripts');
+
+function my_enqueue_scripts() {
+
+    wp_enqueue_script("http://localhost/wordpress4/wp-content/themes/oma-teema/js/homepageCarousel.js");
+}*/
 /*
 echo get_stylesheet_directory_uri()  . '/js/app.js/';
 echo 'functions.php rivi 48'; //OTA POIS KOMMENTTI */
 
 function my_new_scripts() {
 wp_enqueue_script( 'new-script', get_template_directory_uri() . '/js/app.js', array(), true );
+wp_enqueue_script( 'new-script2', get_template_directory_uri() . '/js/homepageCarousel.js', array(), true );
 }
 
 
