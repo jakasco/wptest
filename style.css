@@ -1,5 +1,5 @@
 /*
-Theme Name: Kurssi
+Theme Name: Kurssiasd
 Theme URI: http://users.metropolia.fi
 Author: Kasperi
 Author URI: https://metropolia.fi/
@@ -49,9 +49,9 @@ input {
 
 
 #otaYhteyttaOtsikko {
-  width: 50em;
-background-color: #e6dfd5;
-    height: 100px;
+  width: 100%;
+  background-color: #e6dfd5;
+  height: 100px;
     text-align: center;
 display: table;
  overflow: hidden;
@@ -61,9 +61,9 @@ display: table;
 
 #lahetaNappi {
   width: 150px;
-  margin-top: -10%;
+/*  margin-top: -10%;*/
 margin-left: 5%;
-background-color: #a1aaf7;
+background-color: #c4c6db;
 height: 40px;
 border-radius: 10px;
 font-weight: bold;
@@ -102,9 +102,9 @@ background-color: #d8d8d7;
 }
 
 .postausTitle {
-  margin-left: 30%;
+  margin-left: 5%;
   padding-top: 5%;
-  padding-bottom: 3%;
+  padding-bottom: 1%;
 }
 
 ul {
@@ -465,6 +465,16 @@ height: 50vh;
 overflow: scroll;
 }
 
+.imageOfPost {
+width: 30%;
+margin-left: 5%;
+}
+
+.tuotteetImg{
+    width: 150px;
+    height: 100px;
+    }
+
 #tuoteNimi {
   font-size: 22px;
 margin-left: 10px;
@@ -510,6 +520,15 @@ font-family: fantasy;
 #scrollTopButton {
   display: none;
 }
+
+#copyRightText {
+color: white;
+font-weight: bold;
+text-decoration-line: inherit;
+font-size: 1.3em;
+}
+
+
 
 @media screen and (min-width: 641px) and (max-width: 999px) {
   article {
@@ -623,6 +642,7 @@ font-family: fantasy;
 		height: 100%;
 		margin-left: 0;
 	}
+
 
 
 	.grid-item {

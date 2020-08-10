@@ -1,28 +1,31 @@
 <?php
 
+function exclude_category($query) {
+if ( $query->is_home() ) {
+$query->set( 'cat', '-2' );
+}
+return $query;
+}
+add_filter( 'pre_get_posts', 'exclude_category' );
+
 add_filter ('wp_image_editors', 'wpse303391_change_graphic_editor');
 function wpse303391_change_graphic_editor ($array) {
     return array( 'WP_Image_Editor_GD', 'WP_Image_Editor_Imagick' );
     }
-//include('customizer.php');
-// Filter except length to 35 words.
-// tn custom excerpt length
+
 function tn_custom_excerpt_length( $length ) {
 return 35;
 }
-//add_filter( 'excerpt_length', 'tn_custom_excerpt_length', 999 );
 
 function custom_theme_setup() {
 
 	add_theme_support('title-tag'); //laittaa title tagin
 	add_theme_support('post-thumbnails');
 	add_theme_support('custom-background'); //admin paneeliin lisää valikkoja, värin muutos
-	add_theme_support('custom-header'); //header text color tulee "colors":iin
+//	add_theme_support('custom-header'); //header text color tulee "colors":iin
 	add_theme_support( 'custom-header', array('width' => 1000, 'heigth' => 400));
   add_theme_support('custom-footer');
 	add_theme_support( 'customize-selective-refresh-widgets' );
-	//add_theme_support( 'custom-header', $args );
-
 	}
 
 add_action( 'after_setup_theme', 'custom_theme_setup');
@@ -34,9 +37,6 @@ function rekisteroi_menu(){
 add_action('init', 'rekisteroi_menu'); //init = wordpress suorittaa komennot ennen kuin lähettää palvelimelle
 
 //lisää kommentointi
-
-
-
 function gb_comment_form_tweaks ($fields) {
     //add placeholders and remove labels
     $fields['author'] = '<input id="author" name="author" value="" placeholder="Nimi*" size="30" maxlength="245" required="required" type="text">';
@@ -58,10 +58,7 @@ add_filter('comment_form_fields', 'gb_comment_form_tweaks');
 
 comment_form(array('title_reply' => 'Join the discussion!', 'comment_notes_before' => ''));
 
-
-
 //lisää jquery
-
 function lisaa_kirjasto() {
 	wp_enqueue_script( 'custom-script', get_template_directory_uri() . '/js/app.js/', array( 'jquery' ) );
 }
@@ -74,33 +71,19 @@ function myplugin_load_script() {
 
 }
 
-
 function myplugin_load_script2() {
     wp_enqueue_script( 'myplugin-testjs', "http://localhost/wordpress4/wp-content/themes/oma-teema/js/homepageCarousel.js", array('jquery'), null, true );
 
 }
-//add_action( 'wp_enqueue_scripts', 'myplugin_load_script2' ); //lisää javascript
-
-/*
-add_action('wp_enqueue_scripts', 'my_enqueue_scripts');
-
-function my_enqueue_scripts() {
-
-    wp_enqueue_script("http://localhost/wordpress4/wp-content/themes/oma-teema/js/homepageCarousel.js");
-}*/
-/*
-echo get_stylesheet_directory_uri()  . '/js/app.js/';
-echo 'functions.php rivi 48'; //OTA POIS KOMMENTTI */
 
 function my_new_scripts() {
 wp_enqueue_script( 'new-script', get_template_directory_uri() . '/js/app.js', array(), true );
 wp_enqueue_script( 'new-script2', get_template_directory_uri() . '/js/homepageCarousel.js', array(), true );
 }
 
-
 add_action( 'wp_enqueue_scripts', 'my_new_scripts' );
 
-//llive preview
+//live preview
 add_action( 'customize_preview_init', 'cd_customizer' );
 function cd_customizer() {
 	wp_enqueue_script(
@@ -139,7 +122,7 @@ function cd_customizer_settings( $wp_customize ) {
 
 
 $wp_customize->add_section( 'cd_colors' , array(
-		'title'      => 'Colors2',
+		'title'      => 'Background Color',
 		'priority'   => 30,
 ) );
 $wp_customize->add_setting( 'background_color' , array(
@@ -155,34 +138,10 @@ $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'back
 'settings'   => 'background_color',
 ) ) );
 
-
-
-/*
-	$wp_customize->add_section( 'cd_colors' , array(
-	    'title'      => 'Header Color',
-	    'priority'   => 30,
-	) );
-
-
-	$wp_customize->add_setting( 'header_color' , array(
-    'default'     => '#43C6E4',
-    'transport'   => 'refresh',
-) );
-
-$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
-	'label'        => 'Background Color',
-	'section'    => 'header_color',
-	'settings'   => 'header_color',
-) ) );
-*/
-
-////////////////////////
 $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-/////////////////////
 
 //Nappiin customointi: näkyykö/eikö näy
-///////////////
   $wp_customize->add_section( 'cd_button' , array(
       'title'      => 'The Button',
       'priority'   => 20,
@@ -203,10 +162,6 @@ $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
     'hide' => 'Hide Button',
   ),
 ) );
-
-////////////////////////////////////
-
-
 
 //live näkymä mitä tapahtuu kun palkkia vedetään edestakaisin
 if( class_exists( 'WP_Customize_Control' ) ) {
@@ -247,18 +202,21 @@ $wp_customize->add_setting( 'cd_photocount' , array(
     'default'     => 0,
     'transport'   => 'postMessage',
 ) );
-
+/*
 $wp_customize->add_control( new WP_Customize_Range( $wp_customize, 'cd_photocount', array(
-	'label'	=>  'Photo Count',
+	'label'	=>  'Number count',
     'min' => 10,
     'max' => 9999,
     'step' => 10,
 	'section' => 'title_tagline',
-) ) );
+) ) );*/
 /////////////////////
+
+
+
 //FOOTER
 $wp_customize->add_section( 'customize_footer' , array(
-		'title'      => 'Footer2',
+		'title'      => 'Footer',
 		'priority'   => 40,
 ) );
 

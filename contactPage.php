@@ -46,25 +46,20 @@
   <textarea id="yheysViesti">
   </textarea><br>
 </div>
+
+<input id="lahetaNappi" type="submit" value="Lähetä">
 </div>
 
-    <br>
 
-    <br>
-    <input id="lahetaNappi" type="submit" value="Lähetä">
-</div>
-</div>
+
 
 
 
 
                 </form>
-
-
-                <br>
-            <div>
-                <button id="takaisinEtusivulle">Takaisin etusivulle</button>
-            </div>
+      <!--      <div>
+                <button id="takaisinEtusivulle" href="<?php echo get_blog_info(); ?>"  >Takaisin etusivulle</button>
+            </div> -->
 
 
                 </main><!-- .site-main -->
