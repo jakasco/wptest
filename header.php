@@ -31,7 +31,7 @@
 			" height="
 			<?php echo get_custom_header()->height; ?>
 			" width="<?php echo get_custom_header()->width; ?>
-			" alt="Banneri!!!!" >
+			" alt="Header img" >
 		</div>
 
 	</div>
@@ -45,8 +45,8 @@
 	  <?php
 	  get_sidebar();
 	  ?>
-	<button id="scrollTopButton" onclick="scrollToTop(1000);">top</button>
 	</div>
+	<button id="scrollTopButton" onclick="scrollToTop(1000);">Ylös 	&#x2B06;</button>
 </header>
 
 

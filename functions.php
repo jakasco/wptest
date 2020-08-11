@@ -239,4 +239,10 @@ $wp_customize->add_control( 'customize_footer_add_fields', array(
 
 }  //CUSTOMIZE SETINGS LOPPUU
 
+add_filter( 'avf_modify_thumb_size', 'enfold_customization_modify_thumb_size', 10, 1 );
+function enfold_customization_modify_thumb_size( $size ) {
+$size['entry_with_sidebar'] = array('width'=>1210, 'height'=>560);
+return $size;
+}
+
 ?>
