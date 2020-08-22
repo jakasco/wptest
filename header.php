@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html <?php language_attributes(); ?>> <!--valitsee kielen wordpress asennuskielen mukaan -->
+<html <?php language_attributes(); ?>>
+<!--valitsee kielen wordpress asennuskielen mukaan -->
 
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
@@ -7,48 +8,39 @@
 	<link href="<?php echo get_template_directory_uri(); ?>/css/fonts/foundation-icons.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
 	<link href="<?php echo get_stylesheet_uri(); ?>" rel="stylesheet"> <!-- kaikki ennen tätä -->
-	<?php wp_head(); ?> <!--Pluginit osaa lukea headerin -->
+	<?php wp_head(); ?>
+	<!--Pluginit osaa lukea headerin -->
 </head>
 
-<body <?php body_class(); ?>
+<body <?php body_class(); ?>>
 
-<div class="main-container">
-<header class="tummansininen main-header">
-<!--	<?php /*echo get_theme_mod( 'header_color', '#43C6E4' ) */ ?> -->
-<h1><?php// echo get_bloginfo( 'name' ); ?></h1>
+	<header class="tummansininen main-header">
 
-<!--	<div class="punainen tunnus"><a href="<?php echo get_home_url(); ?>">Oy Firma ab</a></div>
-	<!--
-	<div class="search-block">
-	<?php// get_search_form(); ?>
-</div> -->
+		<div class="headerImg">
+			<h1 id="headerTitle"><?php echo get_bloginfo('name'); ?></h1>
 
-	<div class="headerImg">
-
-		<div class="banner">
-			<img src="
-			<?php  header_image(); ?>
+			<div class="banner">
+				<img src="
+			<?php header_image(); ?>
 			" height="
 			<?php echo get_custom_header()->height; ?>
 			" width="<?php echo get_custom_header()->width; ?>
-			" alt="Header img" >
+			" alt="Header img">
+			</div>
+
 		</div>
 
-	</div>
-	<!-- <div class="navi">
+		<div id='photocount'>
+			<span id="photocountlabel"><?php // echo get_theme_mod( 'cd_photocount', 0 ) 
+										?></span>
+		</div>
 
-	</div> -->
-	<div id='photocount'>
-	    <span id="photocountlabel"><?php // echo get_theme_mod( 'cd_photocount', 0 ) ?></span>
-	</div>
-	<div class="nav-container">
-	  <?php
-	  get_sidebar();
-	  ?>
-	</div>
-	<button id="scrollTopButton" onclick="scrollToTop(1000);">Ylös 	&#x2B06;</button>
-</header>
+		<div class="nav-container">
+			<?php
+			get_sidebar();
+			?>
+		</div>
 
-
-
-<!--<h1>VIDEO 8 VIIMEISIN </h1>-->
+		<button id="scrollTopButton" onclick="scrollToTop(1000);">Ylös &#x2B06;</button>
+		
+	</header>

@@ -3,19 +3,16 @@
 comment_form();
 
 if (have_comments()) :
-
 endif;
-
 if (have_comments()) : ?>
     <ol class="post-comments">
         <?php
-            wp_list_comments(array(
-                'style'       => 'ol',
-                'short_ping'  => true,
-            ));
+        wp_list_comments(array(
+            'style'       => 'ol',
+            'short_ping'  => true,
+        ));
         ?>
     </ol>
-      <?php
+<?php
 endif;
-
 ?>
