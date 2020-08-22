@@ -74,7 +74,7 @@ get_header(); ?>
                   `
               </div>
               <div class="exp">
-              <a class="lueLisaa" target="_blank" rel="noopener noreferrer" href="'+link+'">
+              <a class="lueLisaa" target="_blank" rel="noopener noreferrer" "` + link + `">
               Lue lisää...
               </a>
               </div>

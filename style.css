@@ -44,7 +44,7 @@ label {
 input {
     margin-top: 10px;
     margin-left: 15px;
-    width: 350px;
+    width: 300px;
     float: left;
 }
 
@@ -94,6 +94,13 @@ input {
 
 .punainen {
     background-color: rgb(231, 76, 60);
+}
+
+#headerTitle {
+    text-align: center;
+    color: rgb(44, 62, 80);
+    padding-top: 1%;
+    margin-top: 3;
 }
 
 .postaus {
@@ -205,9 +212,9 @@ grid-auto-columns: auto auto auto;*/
   float: left;
   width: 100%;
 */
-    width: 40%;
-    padding-top: 5%;
-    margin-left: 30%;
+    width: 20%;
+    padding-top: 3%;
+    margin-left: 40%;
 }
 
 .banner img {
@@ -233,6 +240,10 @@ grid-auto-columns: auto auto auto;*/
     background-color: #dadada;
     /*transition: height 1s, visibility 1s, opacity 0.5s ease-out; */
 }
+
+.contactForm {}
+
+.contactChildDiv {}
 
 #slider {
     margin: 0px auto;
@@ -455,6 +466,17 @@ footer {
     bottom: 0;
 }
 
+
+/*
+.tuotteetSivunGrid {
+  float: left;
+width: 90%;
+background-color: #e0e0ae;
+height: 50vh;
+overflow: scroll;
+    margin-top: 5%;
+}*/
+
 .imageOfPost {
     width: 30%;
     margin-left: 5%;
@@ -531,6 +553,9 @@ footer {
     .left-nav>ul>li:nth-of-type(1) {
         display: none !important;
     }
+    input {
+        width: 300px;
+    }
     .post p {
         width: 50%;
         float: right;
@@ -551,7 +576,8 @@ footer {
         margin: auto;
     }
     .banner {
-        display: none;
+        width: 60%;
+        margin-left: 20%;
     }
     .nav-container {
         background-color: grey;
